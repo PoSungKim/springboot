@@ -3,59 +3,82 @@
 	<head>
 		<meta charset = "UTF-8">
 		<title>Title</title>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
 	</head>
-	<body>
+	
+	<body class="container">
 		<div th:replace="header :: header"/> 
-		<h1 th:text="${name}">Hello! User Page</h1>
+		<div class="text-center">
+			<img th:src="@{/images/welcome.png}" class="img-fluid" alt="Welcome Image">
+			
+			<h1 th:text="${name}">Hello! User Page</h1>
+		</div>
 		
+		<form th:action="@{/user}" th:object="${user}" method="post">
 		
-		<h1>Form</h1>
-	    <form th:action="@{/user}" th:object="${user}" method="post">
-	    	<p>Id: <input type="text" th:field="*{id}" /></p>
-	        <p>Username: <input type="text" th:field="*{username}" /></p>
-	        <p>Password: <input type="text" th:field="*{password}" /></p>
-	        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-	    </form>
+		<!--   
+		  <div class="form-group">
+		    <label>Id</label>
+		    <input type="text" th:field="*{id}" class="form-control">
+		  </div>
+		-->
+		
+		  <div class="form-group">
+		    <label>Username</label>
+		    <input type="text" th:field="*{username}" class="form-control">
+		  </div>
+		  <div class="form-group">
+		    <label> Password</label>
+		    <textarea type="text" th:field="*{password}" class="form-control" rows="3"></textarea>
+		  </div>
+		  <p><input type="submit" value="Submit" class= "btn btn-dark" /></p>
+		</form>
+		
+	    <hr>
 	    
 	    <div th:switch="${users}">
-		    <h2 th:case="null">No users yet!</h2>
-		        <div th:case="*">
-		            <h2>Users</h2>
-		            <table>
-		                <thead>
-		                    <tr>
-		                        <th>Id</th>
-		                        <th>Username</th>
-		                        <th>Password</th>
-		                    </tr>
-		                </thead>
-		                <tbody>
+	    	<h2 th:case="null">No users yet!</h2>
+	    		<div th:case="*">
+	    		<h2>Users</h2>
+	    		<table class="table">
+	                <thead>
+	                    <tr>
+	                        <th scope="col">#</th>
+	                        <th scope="col">Id</th>
+	                        <th scope="col">Username</th>
+	                        <th scope="col">Password</th>
+	                    </tr>
+	                </thead>
+	                <tbody>
 		                <tr th:each="user : ${users}">
+		                	<th scope="row">#</th>
 		                    <td th:text="${user.id}"></td>
 		                    <td th:text="${user.username}"></td>
 		                    <td th:text="${user.password}"></td>
+		                    <!--   
 		                    <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
 		                    <td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>
+		                    -->
 		                </tr>
 		            </tbody>
 		        </table>
 		    </div>      
 		    <!-- <p><a href="/signup">Add a new user</a></p> -->
 		</div>
+		            
 		<div th:replace="footer :: footer" />
+		<script th:href="@{/js/bootstrap.js}"></script>
 	</body>
 	
-
-	
-	
-	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
-	
-	<script>
-	
-		$(function() {
-			alert("ready!");
-		});
+		<!--  <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>  
 		
-	</script>
+		<script>
+		
+			$(function() {
+				alert("ready!");
+			});
+			
+		</script>
+		-->
 	
 </html>

@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-	<div th:fragment="header">
-		<header>
-	        <div>
-	        	<img th:src="@{/images/welcome.png}" alt="Welcome Image">
-	            <p> This is HEADER! </p>
-	            <hr>
-	        </div>
-	    </header>
-	</div>
+	<header>
+		<nav th:fragment="header" class="navbar navbar-expand-lg navbar-light bg-light">
+		
+			<a class="navbar-brand" href="/">
+			    <img th:src="@{/images/welcome.png}" width = 30 height = 30 class="img-fluid" alt="Welcome Image">
+			</a>
+		
+			<a class="navbar-brand" href="/">Navbar</a>
+			
+			<ul class="navbar-nav mr-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="/">Home <span class="sr-only"></a>
+			      </li>
+      		</ul>
+	        	
+		</nav>
+	</header>
 </html>
