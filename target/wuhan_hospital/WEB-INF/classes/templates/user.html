@@ -11,7 +11,7 @@
 		<div class="text-center">
 			<img th:src="@{/images/welcome.png}" class="img-fluid" alt="Welcome Image">
 			
-			<h1 th:text="${name}">Hello! User Page</h1>
+			<h1>Hello! User Page</h1>
 		</div>
 		
 		<form th:action="@{/user}" th:object="${user}" method="post">

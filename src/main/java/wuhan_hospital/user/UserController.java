@@ -23,6 +23,7 @@ public class UserController {
 	@GetMapping(value = {"/", "/user"})
 	public String user(Model model) {
 		model.addAttribute("user", new User());
+		model.addAttribute("users", userDBRepository.findAll());
 		return "user";
 		//return "<h1> This is User Page </h1>";
 	}
@@ -31,10 +32,12 @@ public class UserController {
 	@PostMapping("/user")
 	public String create(User user, Model model) throws Exception {
 		System.out.println(user.getId());
-		System.out.println(user.getPassword());
 		System.out.println(user.getUsername());
+		System.out.println(user.getPassword());
+		
 		
 		userDB.insert_user(user);
+		//userDB.insert_user(user);
 		//userDBRepository.save(user);
 		
 		model.addAttribute("users", userDBRepository.findAll());
