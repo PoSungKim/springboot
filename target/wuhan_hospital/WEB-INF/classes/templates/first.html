@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset = "UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+	</head>
+	
+	<body class="container">
+		<div th:replace="header :: header"/> 
+		<div class="text-center">
+			<img th:src="@{/images/consulting2.jpeg}" style="width: 80%; " class="img-fluid" alt="Welcome Image">
+			
+			<br><h1>Artificial Intelligence</h1>
+		</div>
+		
+		<form th:action="@{/first}" th:object="${first}" method="post">
+		
+		  <div class="form-group">
+		    <label>Title</label>
+		    <input type="text" th:field="*{title}" class="form-control">
+		  </div>
+		  <div class="form-group">
+		    <label> Content</label>
+		    <textarea type="text" th:field="*{content}" class="form-control" rows="3"></textarea>
+		  </div>
+		  <p><input type="submit" value="Submit" class= "btn btn-dark" /></p>
+		</form>
+		
+	    <hr>
+	    
+	    <div th:switch="${firsts}">
+	    	<h2 th:case="null">No users yet!</h2>
+	    		<div th:case="*">
+	    		<h2>First</h2>
+	    		<table class="table">
+	                <thead>
+	                    <tr>
+	                        <th scope="col">#</th>
+	                        <!-- <th scope="col">Id</th> -->
+	                        <th scope="col">Title</th>
+	                        <th scope="col">Content</th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+		                <tr th:each="first : ${firsts}">
+		                	<th scope="row">#</th>
+		                    <!-- <td th:text="${first.id}"></td> -->
+		                    <td th:text="${first.title}"></td>
+		                    <td th:text="${first.content}"></td>
+		                </tr>
+		            </tbody>
+		        </table>
+		    </div>      
+		</div>
+		            
+		<div th:replace="footer :: footer" />
+		<script th:href="@{/js/bootstrap.js}"></script>
+	</body>
+	
+</html>

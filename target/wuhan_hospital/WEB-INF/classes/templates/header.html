@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<header>
-		<nav th:fragment="header" class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav th:fragment="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
 		
-			<a class="navbar-brand" href="/">
-			    <img th:src="@{/images/welcome.png}" width = 30 height = 30 class="img-fluid" alt="Welcome Image">
-			</a>
-		
-			<a class="navbar-brand" href="/">Navbar</a>
+			<a class="navbar-brand" href="/">LG IT Consulting Group</a>
 			
 			<ul class="navbar-nav mr-auto">
 			      <li class="nav-item active">
-			        <a class="nav-link" href="/">Home <span class="sr-only"></a>
+			        <a class="nav-link" href="/first"> Artificial Intelligence <span class="sr-only"></a>
+			      </li>
+			      <li class="nav-item active">
+			        <a class="nav-link" href="/second"> BlockChain <span class="sr-only"></a>
+			      </li>
+			      <li class="nav-item active">
+			        <a class="nav-link" href="/third"> Internet of Things <span class="sr-only"></a>
 			      </li>
       		</ul>
 	        	

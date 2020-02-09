@@ -1,6 +1,10 @@
-wuhan_hospital/user/User.class
-wuhan_hospital/user/UserDB.class
-wuhan_hospital/user/UserController.class
-wuhan_hospital/user/UserDBRepository.class
+wuhan_hospital/first/First.class
+wuhan_hospital/second/SecondController.class
+wuhan_hospital/first/FirstController.class
+wuhan_hospital/second/SecondDB.class
 wuhan_hospital/SampleListener.class
+wuhan_hospital/second/SecondDBRepository.class
+wuhan_hospital/first/FirstDB.class
+wuhan_hospital/second/Second.class
+wuhan_hospital/first/FirstDBRepository.class
 wuhan_hospital/Application.class
