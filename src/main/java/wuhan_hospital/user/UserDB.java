@@ -1,15 +1,16 @@
-package wuhan_hospital.second;
+package wuhan_hospital.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import java.sql.Connection;
+
 import javax.sql.DataSource;
+import java.sql.Connection;
 
 @Component
-public class SecondDB {
-
+public class UserDB {
+	
 	@Autowired
 	DataSource dataSource;
 	
@@ -17,9 +18,10 @@ public class SecondDB {
 	JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	SecondDBRepository secondDBRepository;
+	UserDBRepository userDBRepository;
 	
-	public void insert_info(Second second) throws Exception {
+	
+	public void join_user(User user) throws Exception {
 		
 		try (Connection connection = dataSource.getConnection()) {
 			System.out.println(dataSource.getClass());
@@ -28,8 +30,7 @@ public class SecondDB {
 			System.out.println(connection.getMetaData().getUserName());
 
 			
-			Second new_second = secondDBRepository.save(second);
+			userDBRepository.save(user);
 		}
-				
 	}
 }

@@ -16,10 +16,17 @@ FirstDB firstDB;
 FirstDBRepository firstDBRepository;
 	
 	@GetMapping(value = {"/", "/first"})
-	public String first(Model model) {
+	public String firstPage(Model model) {
 		model.addAttribute("first", new First());
 		model.addAttribute("firsts", firstDBRepository.findAll());
 		return "first";
+	}
+	
+	@GetMapping(value = {"/board"})
+	public String boardPage(Model model) {
+		//model.addAttribute("first", new First());
+		model.addAttribute("firsts", firstDBRepository.findAll());
+		return "board";
 	}
 	
 	@PostMapping("/first")
